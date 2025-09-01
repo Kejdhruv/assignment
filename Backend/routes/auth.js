@@ -8,6 +8,7 @@ import CreateUser from "../Database/UserLogin/CreateUser.js";
 dotenv.config();
 const router = express.Router();
 
+// ------------------ Signup ------------------
 router.post('/Auth/Signup', async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -16,7 +17,7 @@ router.post('/Auth/Signup', async (req, res) => {
     }
 
     // check if user exists
-    const existingUser = await GetUser({ email }); 
+    const existingUser = await GetUser(email); 
     if (existingUser) {
       return res.status(409).json({ message: "User already exists" });
     }
@@ -36,8 +37,7 @@ router.post('/Auth/Signup', async (req, res) => {
 
     return res.status(201).json({
       message: "User added successfully",
-      insertedCount: result.insertedCount,
-      insertedIds: result.insertedIds
+      insertedId: result.insertedId
     }); 
 
   } catch (err) {
@@ -46,7 +46,7 @@ router.post('/Auth/Signup', async (req, res) => {
   }
 }); 
 
-
+// ------------------ Login ------------------
 router.post('/Auth/Login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -55,7 +55,7 @@ router.post('/Auth/Login', async (req, res) => {
     }
 
     // check if user exists
-    const existingUser = await GetUser({ email }); 
+    const existingUser = await GetUser(email); 
     if (!existingUser) {
       return res.status(404).json({ message: "User doesn't exist" });
     }
@@ -99,9 +99,7 @@ router.post('/Auth/Login', async (req, res) => {
   }
 });
 
-export default router;   
-
-
+export default router;
 
 
 

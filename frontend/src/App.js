@@ -4,7 +4,8 @@ import Auth from "./Pages/Authentication/Auth";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Auth/>} /> 
+      <Route path="/" element={<Auth />} /> 
+      <Route path="/Home" element={<h1> Supp bitches</h1>} /> 
        
     </Routes>
   );

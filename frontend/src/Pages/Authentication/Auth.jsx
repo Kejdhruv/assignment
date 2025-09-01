@@ -34,7 +34,10 @@ export default function Auth() {
             <p>{isLogin ? "Welcome back! Please login." : "Create your account."}</p>
           </div>
 
-          {isLogin ? <Login /> : <SignUp />}
+          {isLogin 
+            ? <Login /> 
+            : <SignUp onSignupSuccess={() => setIsLogin(true)} />  // pass callback
+          }
 
           <p className="auth-toggle">
             {isLogin ? (

@@ -76,9 +76,6 @@ router.post('/Auth/Login', async (req, res) => {
      Email : existingUser.email,
       };  
       
-      
-
-    const result = await CreateUser(newUser); 
 
     return res.status(201).json({
       message: "User added successfully",

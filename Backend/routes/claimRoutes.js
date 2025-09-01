@@ -4,9 +4,9 @@ import claimbyuserid from "../Database/Claims/claimbyuserid.js";
 import claims from "../Database/Claims/claims.js";
 import Addclaim from "../Database/Claims/Addclaim.js";
 import { processClaim } from "../services/claimProcessor.js";
-import multer from 'multer';       // <-- ADD THIS
-import Tesseract from 'tesseract.js'; // <-- ADD THIS
-import fs from 'fs';               // <-- ADD THIS
+import multer from 'multer';       
+import Tesseract from 'tesseract.js'; 
+import fs from 'fs';          
 
 const router = express.Router();
 

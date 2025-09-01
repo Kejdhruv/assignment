@@ -8,7 +8,8 @@ import CreateUser from "../Database/UserLogin/CreateUser.js";
 dotenv.config();
 const router = express.Router();
 
-// ------------------ Signup ------------------
+
+// User Signup
 router.post('/Auth/Signup', async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -46,7 +47,10 @@ router.post('/Auth/Signup', async (req, res) => {
   }
 }); 
 
-// ------------------ Login ------------------
+
+
+
+// User Login 
 router.post('/Auth/Login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -79,11 +83,11 @@ router.post('/Auth/Login', async (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", 
       sameSite: "strict",
-      maxAge: 60 * 60 * 1000, // 1 hour in ms
+      maxAge: 60 * 60 * 1000, 
       path: "/",
     });
 
-    // return success + basic info
+    
     return res.status(200).json({
       message: "Login Successful",
       success: true,
@@ -99,6 +103,25 @@ router.post('/Auth/Login', async (req, res) => {
   }
 });
 
+
+router.get('/Auth/Logout', async (req, res) => {
+  try {
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/",
+    });
+
+    return res.status(200).json({
+      message: "Logout Successful",
+      success: true
+    });
+  } catch (err) {
+    console.error("Error Logout", err);
+    return res.status(500).json({ error: "Internal Error while Logging Out" });
+  }
+});
 export default router;
 
 

@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import claimRoutes from "./routes/claimRoutes.js";
-import auth from "./routes/auth.js"; // <
+import auth from "./routes/auth.js"; 
 import cookieParser from "cookie-parser";
 
 dotenv.config();

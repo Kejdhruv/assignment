@@ -1,0 +1,130 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #f9f9f9 0%, #ececec 100%);
+  font-family: 'Inter', sans-serif;
+}
+
+.auth-card {
+  display: flex;
+  width: 85%;
+  max-width: 1000px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.auth-left {
+  display: none;
+}
+
+@media(min-width: 768px) {
+  .auth-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 50px;
+    background: linear-gradient(135deg, #f3e8ff, #f9f9f9);
+  }
+}
+
+.auth-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #7b3fe4;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.auth-subtitle {
+  font-size: 1rem;
+  color: #6b6b6b;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* New: icons container */
+.auth-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;          /* space between icons */
+  margin-top: 30px;
+  flex-wrap: wrap;     /* wraps on smaller screens */
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #7b3fe4;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.icon-wrapper p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #6b6b6b;
+}
+
+.icon-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.auth-right {
+  width: 100%;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.auth-header p {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 8px;
+}
+
+.auth-toggle {
+  text-align: center;
+  margin-top: 25px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.auth-toggle button {
+  color: #7b3fe4;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.auth-toggle button:hover {
+  color: #5e2fcf;
+  text-decoration: underline;
+}
+
+/* Optional: smooth transition for the forms */
+.auth-right form {
+  transition: all 0.3s ease;
+}

@@ -1,10 +1,11 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom'; 
+import Auth from "./Pages/Authentication/Auth";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<h1>Hello</h1>} /> 
-      
+      <Route path="/" element={<Auth/>} /> 
+       
     </Routes>
   );
 }

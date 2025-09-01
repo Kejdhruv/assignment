@@ -4,7 +4,7 @@ const database = 'ASSIGNMENT';
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
 
-async function claimbyuserid(UID) {
+async function claimbyuserid(userId) {
     try {
         
         await client.connect();
@@ -12,7 +12,7 @@ async function claimbyuserid(UID) {
         const db = client.db(database);
         const collection = db.collection('Claims');
 
-        const data = await collection.find({UID}).toArray();
+        const data = await collection.find({userId}).toArray();
 
         return data;
     } catch (err) {

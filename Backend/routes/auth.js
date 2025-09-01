@@ -103,7 +103,7 @@ router.post('/Auth/Login', async (req, res) => {
   }
 });
 
-
+// User Logout 
 router.get('/Auth/Logout', async (req, res) => {
   try {
     res.clearCookie("token", {

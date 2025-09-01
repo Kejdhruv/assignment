@@ -25,10 +25,10 @@ router.get('/claims/id/:_id', async (req, res) => {
 });
 
 // Fetch claims by User ID
-router.get('/claims/user/:UID', async (req, res) => {
+router.get('/claims/user/:userId', async (req, res) => {
   try {
-    const { UID } = req.params;
-    const data = await claimbyuserid(UID);
+    const { userId } = req.params;
+    const data = await claimbyuserid(userId);
     res.send(data);
   } catch (err) {
     console.error(err);

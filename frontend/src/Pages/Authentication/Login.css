@@ -37,7 +37,7 @@ input[type="password"]:focus {
 
 button {
   width: 90%;
-  max-width: 300px; /* same as inputs */
+  max-width: 300px; 
   padding: 12px;
   background-color: #7b3fe4;
   color: white;

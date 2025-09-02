@@ -72,7 +72,7 @@ router.post('/Auth/Login', async (req, res) => {
 
     // generate JWT
     const tokenData = {
-      id: existingUser._id.toString(),
+      userId: existingUser._id.toString(),
       name: existingUser.username,
       email: existingUser.email,
     };
@@ -92,7 +92,7 @@ router.post('/Auth/Login', async (req, res) => {
       message: "Login Successful",
       success: true,
       user: {
-        id: existingUser._id,
+        userId: existingUser._id,
         username: existingUser.username,
         email: existingUser.email,
       },

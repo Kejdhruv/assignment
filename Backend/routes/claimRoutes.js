@@ -7,7 +7,7 @@ import { processClaim } from "../services/claimProcessor.js";
 import multer from 'multer';       
 import Tesseract from 'tesseract.js'; 
 import fs from 'fs';          
-
+import { authMiddleware } from "../Middleware/DecodeToken.js";
 const router = express.Router();
 
 const upload = multer({ dest: 'uploads/' });
@@ -49,19 +49,20 @@ router.get('/claims', async (req, res) => {
 
 //  Add new claim
 // OCR + process + insert
-router.post('/api/claims', upload.array('documents', 5), async (req, res) => {
+router.post('/api/claims',authMiddleware,  upload.array('documents', 10), async (req, res) => {
   if (!req.files || req.files.length === 0) {
     return res.status(400).json({ error: "No document files were uploaded." });
   }
 
   try {
-    const { userId, name, email } = req.body;
+    const { id: userId, name, email } = req.user; 
     const ocrPages = [];
 
     for (const file of req.files) {
       const { data: { text } } = await Tesseract.recognize(file.path, "eng");
       ocrPages.push(text);
       fs.unlinkSync(file.path);
+       console.log(`✅ Deleted temp file: ${file.path}`);
     }
 
     const processedClaims = processClaim(ocrPages, { userId, name, email });

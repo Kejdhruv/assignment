@@ -1,14 +1,18 @@
 import React from "react";
-import { Route, Routes } from 'react-router-dom'; 
+import { Route, Routes } from "react-router-dom";
 import Auth from "./Pages/Authentication/Auth";
 import Home from "./Pages/DashBoards/Home";
+import Navbar from "./Components/Navbar";
+
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Auth />} /> 
-      <Route path="/Home" element={<Home />} /> 
-       
-    </Routes>
+    <>
+      <Navbar />   
+      <Routes>
+        <Route path="/" element={<Auth />} />
+        <Route path="/Home" element={<Home />} />
+      </Routes>
+    </>
   );
 }
 

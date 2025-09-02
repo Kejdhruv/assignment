@@ -6,8 +6,8 @@
   background: linear-gradient(
     90deg,
      #ae7be5c5 0%, 
-    #ffffff 25%,   /* ⬅️ keep white until 25% */
-    #6b11cbc5 65%,   /* start purple later */
+    #ffffff 25%,  
+    #6b11cbc5 65%,   
     #3b0a74 100%
   ); 
   background-color:  #6b11cbc5 65%,  ;
@@ -27,7 +27,7 @@
   font-size: 1.8rem;
   font-weight: 700;
   cursor: pointer;
-  color: #4b0082; /* deep violet for Clinikk */
+  color: #4b0082; 
   background: white;
   padding: 6px 14px;
   border-radius: 8px;
@@ -39,7 +39,6 @@
   gap: 18px;
 }
 
-/* Glassy buttons */
 .navbar-btn {
   background: rgba(157, 42, 186, 0.829);
   color: white;

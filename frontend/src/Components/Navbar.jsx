@@ -6,7 +6,6 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Hide navbar on "/" page
   if (location.pathname === "/") return null;
 
   const handleLogout = () => {
@@ -20,12 +19,12 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      {/* Left brand section */}
+     
       <div className="navbar-left">
         <span className="brand-text">Clinikk</span>
       </div>
 
-      {/* Right buttons */}
+     
       <div className="navbar-right">
         <button
           className="nav-btn"

@@ -1,0 +1,128 @@
+.admin-claim-container {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 15px;
+}
+
+.admin-claim-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+  font-size: 24px;
+}
+
+.admin-claim-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.admin-claim-card {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  gap: 8px; 
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 750px; 
+  flex-wrap: wrap; 
+}
+
+.admin-claim-left {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.admin-claim-right {
+  flex: 1;
+  min-width: 200px; 
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 8px; 
+}
+
+.admin-claim-email {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+}
+
+.admin-claim-check-item {
+  font-size: 12px;
+}
+
+.admin-claim-passed {
+  color: #28a745;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.admin-claim-failed {
+  color: #dc3545;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.admin-claim-flag-text {
+  color: #ff5722;
+  font-style: italic;
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+.admin-claim-reason-textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  resize: vertical;
+  min-height: 200px; 
+   margin-right: 2px;
+  padding-right: 4px ;
+}
+
+.admin-claim-buttons {
+  display: flex;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.admin-claim-approve-btn {
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.admin-claim-reject-btn {
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+}

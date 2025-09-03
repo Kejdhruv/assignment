@@ -51,11 +51,15 @@
 
 .admin-claim-right {
   flex: 1;
-  min-width: 200px; 
+  min-width: 200px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding-right: 8px; 
+  gap: 8px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.85); /* slightly lighter panel */
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* same subtle shadow as left */
 }
 
 .admin-claim-email {
@@ -94,9 +98,8 @@
   border: 1px solid #ccc;
   font-size: 13px;
   resize: vertical;
-  min-height: 200px; 
-   margin-right: 2px;
-  padding-right: 4px ;
+  min-height: 250px; 
+   box-sizing: border-box; 
 }
 
 .admin-claim-buttons {

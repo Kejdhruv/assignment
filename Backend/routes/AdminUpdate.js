@@ -2,11 +2,15 @@ import express from "express";
 import UpdateClaim from "../Database/Claims/UpdateClaim.js"; 
 import claims from "../Database/Claims/claims.js";
 const router = express.Router();  
+import { authMiddleware , adminAuth } from "../Middleware/DecodeToken.js";
 
-
-router.get('/admin/claims', async (req, res) => {
+router.get('/admin/claims',authMiddleware,  async (req, res) => {
   try {
     const data = await claims();
+     const { role } = req.user; 
+  if (role !== "Admin") {
+  return res.status(403).json({ error: "Forbidden: Admins only" });
+}
     res.send(data);
   } catch (err) {
     console.error(err);
@@ -14,11 +18,14 @@ router.get('/admin/claims', async (req, res) => {
   }
 });
 
-router.put('/admin/claims/:id/approve', async (req, res) => {
+router.put('/admin/claims/:id/approve', authMiddleware,async (req, res) => {
   try {
     const { id } = req.params;
     const { reason } = req.body; 
-
+    const { role } = req.user; 
+  if (role !== "Admin") {
+  return res.status(403).json({ error: "Forbidden: Admins only" });
+}
     const result = await UpdateClaim(id, {
       "review.status": "approved",
       "review.decision": "approved",
@@ -34,11 +41,14 @@ router.put('/admin/claims/:id/approve', async (req, res) => {
 });  
 
 
-router.put('/admin/claims/:id/reject', async (req, res) => {
+router.put('/admin/claims/:id/reject', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
     const { reason } = req.body; 
-
+ const { role } = req.user; 
+  if (role !== "Admin") {
+  return res.status(403).json({ error: "Forbidden: Admins only" });
+}
     if (!reason) {
       return res.status(400).json({ error: "Reason is required for rejection" });
     }

@@ -9,7 +9,10 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchClaims = async () => {
       try {
-        const res = await fetch("http://localhost:4898/admin/claims");
+        const res = await fetch("http://localhost:4898/admin/claims", {
+           method: "GET",
+  credentials: "include", 
+        });
         if (!res.ok) throw new Error("Failed to fetch claims");
         const data = await res.json();
         setClaims(data);
@@ -32,8 +35,10 @@ const AdminDashboard = () => {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ reason }),
+        credentials: "include",
       });
       if (!res.ok) throw new Error("Action failed");
+      const data = await res.json();
       alert(`${action.toUpperCase()} successful!`);
       setClaims((prev) =>
         prev.map((c) =>

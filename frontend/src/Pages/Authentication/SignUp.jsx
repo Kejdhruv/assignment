@@ -8,14 +8,14 @@ export default function SignUp({ onSignupSuccess }) {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Username, setUsername] = useState("");
-
+  const Role = "User"; 
   const handleNameChange = (e) => setUsername(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newData = { username: Username, email: Email, password: Password };
+    const newData = { username: Username, email: Email, password: Password , role: Role };
 
     try {
       const response = await fetch(`http://localhost:4898/Auth/Signup`, {

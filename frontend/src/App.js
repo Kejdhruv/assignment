@@ -5,7 +5,7 @@ import Home from "./Pages/DashBoards/Home";
 import Navbar from "./Components/Navbar";
 import UserPage from "./Pages/DashBoards/UserPage";
 import AdminDashboard from "./Pages/Admin/AdminDashboard";
-
+import AdminRoute from "./Pages/Admin/AdminRoute";
 function App() {
   return (
     <>
@@ -14,7 +14,15 @@ function App() {
         <Route path="/" element={<Auth />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/UserProfile" element={<UserPage />} />
-         <Route path="/AdminDashboard" element={<AdminDashboard/>} />
+        <Route
+  path="/AdminDashboard"
+  element={
+    <AdminRoute>
+      <AdminDashboard />
+    </AdminRoute>
+  }
+/>
+        
       </Routes>
     </>
   );

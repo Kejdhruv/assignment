@@ -4,16 +4,21 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv"; 
 import GetUser from "../Database/UserLogin/GetUser.js";
 import CreateUser from "../Database/UserLogin/CreateUser.js";
-
+import { authMiddleware } from "../Middleware/DecodeToken.js";
 dotenv.config();
 const router = express.Router();
-
+//Admin User 
+router.get("/API/USER", authMiddleware, (req, res) => {
+  // req.user was set in your middleware
+  const { id, name, email, role } = req.user;
+  res.json({ id, name, email, role });
+});
 
 // User Signup
 router.post('/Auth/Signup', async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    if (!username || !email || !password) {
+    const { username, email, password , role } = req.body;
+    if (!username || !email || !password || !role) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -31,6 +36,7 @@ router.post('/Auth/Signup', async (req, res) => {
       username,
       email,
       password: hashedPass,
+      role ,
       createdAt: new Date()
     }; 
 
@@ -75,6 +81,7 @@ router.post('/Auth/Login', async (req, res) => {
       userId: existingUser._id.toString(),
       name: existingUser.username,
       email: existingUser.email,
+      role: existingUser.role
     };
     const token = jwt.sign(tokenData, process.env.TOKEN_SECRET, { expiresIn: "1h" });
 
@@ -95,6 +102,7 @@ router.post('/Auth/Login', async (req, res) => {
         userId: existingUser._id,
         username: existingUser.username,
         email: existingUser.email,
+        role:existingUser.role , 
       },
     });
   } catch (err) {

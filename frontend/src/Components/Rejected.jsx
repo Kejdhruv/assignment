@@ -121,16 +121,26 @@ function Rejected() {
             Excluded items: {claim.checks.policy_exclusions.excluded_items.join(", ")}
           </p>
               )}
-                  {claim.checks?.eligible_amount_calculation && (
-    <div className="eligible-amount">
-      <p><strong>Total Claimed:</strong> ₹{claim.checks.eligible_amount_calculation.totalClaimed}</p>
-      <p><strong>Eligible Amount:</strong> ₹{claim.checks.eligible_amount_calculation.eligibleAmount}</p>
-      <p>
-        <strong>Status:</strong>{" "}
-        {claim.checks.eligible_amount_calculation.passed ? "✅ Fully Eligible" : "⚠️ Partial Eligibility"}
-      </p>
-    </div>
-  )}         
+                      <div
+    className={`eligible-amount-card ${
+      claim.checks?.eligible_amount_calculation?.passed
+        ? "eligible-pass"
+        : "eligible-fail"
+    }`}
+  >
+    <p>
+      <strong>Total Claimed:</strong> ₹
+      {claim.checks?.eligible_amount_calculation?.totalClaimed}
+    </p>
+    <p>
+      <strong>Eligible Amount:</strong> ₹
+      {claim.checks?.eligible_amount_calculation?.eligibleAmount}
+    </p>
+    <p>
+      <strong>Status:</strong>{" "}
+      {claim.checks?.eligible_amount_calculation?.passed ? "✅ Approved" : "❌ Reduced"}
+    </p>
+  </div>  
       </div>
 
     </div>

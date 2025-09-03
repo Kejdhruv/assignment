@@ -1,6 +1,6 @@
 import express from "express";
 import claimbyid from "../Database/Claims/claimbyid.js";
-import claimbyuserid from "../Database/Claims/claimbyuserid.js";
+import  { claimByUserId, claimApprovedByUserId, claimPendingByUserId, claimRejectedByUserId } from "../Database/Claims/claimbyuserid.js";
 import claims from "../Database/Claims/claims.js";
 import Addclaim from "../Database/Claims/Addclaim.js";
 import { processClaim } from "../services/claimProcessor.js";
@@ -25,10 +25,10 @@ router.get('/claims/id/:_id', async (req, res) => {
 });
 
 // Fetch claims by User ID
-router.get('/claims/user/:userId', async (req, res) => {
+router.get('/claims/user',authMiddleware, async (req, res) => {
   try {
-    const { userId } = req.params;
-    const data = await claimbyuserid(userId);
+     const { email } = req.user; 
+    const data = await claimbyuserid(email);
     res.send(data);
   } catch (err) {
     console.error(err);
@@ -36,6 +36,39 @@ router.get('/claims/user/:userId', async (req, res) => {
   }
 });
 
+//Fetch claims for userId and on the basis of their claim status ; 
+router.get('/claims/user/pending',authMiddleware,  async (req, res) => {
+  try {
+   const { email } = req.user; 
+    const data = await claimPendingByUserId(email);
+    res.send(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ error: "Failed to fetch pending claims for user" });
+  }
+});
+
+router.get('/claims/user/approved',authMiddleware, async (req, res) => {
+  try {
+    const { email } = req.user; 
+    const data = await claimApprovedByUserId(email);
+    res.send(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ error: "Failed to fetch pending claims for user" });
+  }
+});
+
+router.get('/claims/user/Rejected',authMiddleware, async (req, res) => {
+  try {
+const { email } = req.user; 
+    const data = await claimRejectedByUserId(email);
+    res.send(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ error: "Failed to fetch pending claims for user" });
+  }
+});
 //  Fetch all claims (Admin view)
 router.get('/claims', async (req, res) => {
   try {

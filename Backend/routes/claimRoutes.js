@@ -69,16 +69,6 @@ const { email } = req.user;
     res.status(500).send({ error: "Failed to fetch pending claims for user" });
   }
 });
-//  Fetch all claims (Admin view)
-router.get('/claims', async (req, res) => {
-  try {
-    const data = await claims();
-    res.send(data);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send({ error: "Failed to fetch all claims" });
-  }
-});
 
 //  Add new claim
 // OCR + process + insert

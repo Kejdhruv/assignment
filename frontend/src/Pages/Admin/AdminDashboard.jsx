@@ -34,7 +34,6 @@ const AdminDashboard = () => {
         body: JSON.stringify({ reason }),
       });
       if (!res.ok) throw new Error("Action failed");
-      const data = await res.json();
       alert(`${action.toUpperCase()} successful!`);
       setClaims((prev) =>
         prev.map((c) =>

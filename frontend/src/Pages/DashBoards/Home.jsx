@@ -52,8 +52,8 @@ function Home() {
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
-        navigate("/profile");
-      }, 2000);
+        navigate("/UserProfile");
+      }, 1000);
     } catch (err) {
       console.error("Error uploading files:", err);
       setMessage("Upload failed!");

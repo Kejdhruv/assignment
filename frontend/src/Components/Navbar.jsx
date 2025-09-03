@@ -28,13 +28,13 @@ function Navbar() {
       <div className="navbar-right">
         <button
           className="nav-btn"
-          onClick={() => navigate("/profile")}
+          onClick={() => navigate("/UserProfile")}
         >
           View Profile
         </button>
         <button
           className="nav-btn"
-          onClick={() => navigate("/admin")}
+          onClick={() => navigate("/AdminDashboard")}
         >
           Admin Dashboard
         </button>

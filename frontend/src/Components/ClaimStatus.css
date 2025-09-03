@@ -1,0 +1,167 @@
+/* Main claim container */
+.claim-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.claim-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* Status badge */
+.status-badge {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+.status-approved {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-rejected {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Prescription + Bill container */
+.claim-top {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.prescription-card, .bill-card {
+  flex: 1;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #eee;
+}
+
+.prescription-card h3,
+.bill-card h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #4b0082; /* violet accent */
+}
+
+/* Issues / Flags */
+.claim-issues {
+  background: #f9f9ff;
+  border-radius: 10px;
+  padding: 14px;
+  border: 1px solid #e5e5f0;
+}
+
+.claim-issues h4 {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #333;
+}
+
+.issue-item {
+  font-size: 14px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  border-left: 3px solid #6a11cb;
+  color: #444;
+}
+
+.diagnosis-section {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f4f0ff; /* light purple shade */
+  border-left: 4px solid #6a11cb; /* accent left border */
+}
+
+.diagnosis-section h4 {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #3b0a74;
+}
+
+.diagnosis-section ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.diagnosis-section li {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.orders-section {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #eef7ff; /* light bluish background */
+  border-left: 4px solid #0d6efd; /* blue accent */
+}
+
+.orders-section h4 {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #084298;
+}
+
+.orders-section ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.orders-section li {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.bill-items-section {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff8e6; /* soft yellow background */
+  border-left: 4px solid #ff9800; /* orange accent */
+}
+
+.bill-items-section h4 {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e65100;
+}
+
+.bill-items-section ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.bill-items-section li {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 4px;
+}

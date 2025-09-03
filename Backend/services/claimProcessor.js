@@ -112,7 +112,7 @@ function extractAddress(text) {
 // Extracts individual line items from a bill
 function extractBillItems(text) {
   const items = [];
-  const ignoreKeywords = /bill no|date|time|address|patient|particulars|total|amount|invoice from/i;
+  const ignoreKeywords = /bill no|date|time|address|patient|particulars|total|amount|invoice from|prescription no/i;
 
   text.split("\n").forEach(line => {
     if (!line.trim() || ignoreKeywords.test(line)) return;
@@ -265,9 +265,21 @@ function runBusinessChecks(prescription, bills) {
     .filter(p => !billed.some(b => b.normalized.includes(p.normalized) || p.normalized.includes(b.normalized)))
     .map(p => p.original);
 
-  const extra = billed
-    .filter(b => !prescribed.some(p => b.normalized.includes(p.normalized) || p.normalized.includes(b.normalized)))
-    .map(b => b.original);
+
+const ignoreForExtra = [
+  "prescription no",
+  "consultation",
+  "registration",
+  "service charge",
+  "room rent"
+];
+
+const extra = billed
+  .filter(b => 
+    !prescribed.some(p => b.normalized.includes(p.normalized) || p.normalized.includes(b.normalized)) &&
+    !ignoreForExtra.some(kw => b.original.toLowerCase().includes(kw))
+  )
+  .map(b => b.original);
 
   const treatment_fulfillment = {
     missing,

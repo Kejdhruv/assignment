@@ -53,7 +53,11 @@ function Pending() {
                 
         {claim.prescription.diagnosis && claim.prescription.diagnosis.length > 0 && (
   <div className="diagnosis-section">
-    <h4>Diagnosis</h4>
+                          <h4>Diagnosis</h4>
+                        <p>
+  <strong>Specialist Prescription :</strong>{" "}
+  {claim.prescription.specialist_prescription ? "Yes" : "No"}
+</p>
     <ul>
       {claim.prescription.diagnosis.map((d, idx) => (
         <li key={idx}>{d}</li>
@@ -83,7 +87,9 @@ function Pending() {
   {claim.bills.map((bill, idx) => (
     <div key={idx} className="bill-details">
       <p><strong>Bill No:</strong> {bill.bill_number}</p>
-      <p><strong>Total Paid:</strong> ₹{bill.total_paid_amount}</p>
+          <p><strong>Total Paid:</strong> ₹{bill.total_paid_amount}</p>
+            <span><strong>Bill Date:</strong> {bill.bill_date}</span>  &nbsp; &nbsp; 
+                   <span><strong>Bill Time:</strong> {bill.bill_time}</span>
 
       {/* Line Items Section */}
       {bill.line_items && bill.line_items.length > 0 && (
@@ -99,7 +105,8 @@ function Pending() {
         </div>
       )}
     </div>
-  ))}
+  ))} 
+
 </div>
       </div>
 
@@ -118,7 +125,28 @@ function Pending() {
           <p className="issue-item">
             Excluded items: {claim.checks.policy_exclusions.excluded_items.join(", ")}
           </p>
-        )}
+              )}
+              
+        <div
+    className={`eligible-amount-card ${
+      claim.checks?.eligible_amount_calculation?.passed
+        ? "eligible-pass"
+        : "eligible-fail"
+    }`}
+  >
+    <p>
+      <strong>Total Claimed:</strong> ₹
+      {claim.checks?.eligible_amount_calculation?.totalClaimed}
+    </p>
+    <p>
+      <strong>Eligible Amount:</strong> ₹
+      {claim.checks?.eligible_amount_calculation?.eligibleAmount}
+    </p>
+    <p>
+      <strong>Status:</strong>{" "}
+      {claim.checks?.eligible_amount_calculation?.passed ? "✅ Approved" : "❌ Reduced"}
+    </p>
+  </div>       
       </div>
 
     </div>

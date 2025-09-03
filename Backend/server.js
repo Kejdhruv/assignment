@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import claimRoutes from "./routes/claimRoutes.js";
 import auth from "./routes/auth.js"; 
 import cookieParser from "cookie-parser";
-
+import AdminUpdate from "./routes/AdminUpdate.js"
 dotenv.config();
 const app = express();
 
@@ -23,3 +23,4 @@ app.listen(PORT, () =>
 
 app.use("/", claimRoutes); 
 app.use("/", auth); 
+app.use("/", AdminUpdate); 

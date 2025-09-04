@@ -9,7 +9,6 @@ dotenv.config();
 const router = express.Router();
 //Admin User 
 router.get("/API/USER", authMiddleware, (req, res) => {
-  // req.user was set in your middleware
   const { id, name, email, role } = req.user;
   res.json({ id, name, email, role });
 });
@@ -22,7 +21,7 @@ router.post('/Auth/Signup', async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    // check if user exists
+    
     const existingUser = await GetUser(email); 
     if (existingUser) {
       return res.status(409).json({ message: "User already exists" });
@@ -64,13 +63,13 @@ router.post('/Auth/Login', async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    // check if user exists
+   
     const existingUser = await GetUser(email); 
     if (!existingUser) {
       return res.status(404).json({ message: "User doesn't exist" });
     }
 
-    // verify password
+    
     const validPassword = await bcrypt.compare(password, existingUser.password);
     if (!validPassword) {
       return res.status(401).json({ message: "Incorrect Password" });

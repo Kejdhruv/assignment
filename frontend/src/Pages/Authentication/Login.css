@@ -19,11 +19,11 @@
 input[type="email"],
 input[type="password"] {
   width: 90%;
-  max-width: 300px; /* shorter input width */
+  max-width: 300px; 
   padding: 12px 15px;
   border: 1px solid #ddd;
   border-radius: 12px;
-  margin: 0 auto 15px auto; /* center input */
+  margin: 0 auto 15px auto; 
   display: block;
   outline: none;
   transition: 0.3s;

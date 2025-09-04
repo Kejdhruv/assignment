@@ -10,7 +10,7 @@ export default function Auth() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        {/* Left side - icons + title */}
+       
         <div className="auth-left">
           <h1 className="auth-title">Clinikk</h1>
           <p className="auth-subtitle">Securely manage your claims and bills in one place.</p>
@@ -27,7 +27,7 @@ export default function Auth() {
           </div>
         </div>
 
-        {/* Right side - forms */}
+   
         <div className="auth-right">
           <div className="auth-header">
             <h2>{isLogin ? "Login" : "Sign Up"}</h2>
@@ -36,7 +36,7 @@ export default function Auth() {
 
           {isLogin 
             ? <Login /> 
-            : <SignUp onSignupSuccess={() => setIsLogin(true)} />  // pass callback
+            : <SignUp onSignupSuccess={() => setIsLogin(true)} />  
           }
 
           <p className="auth-toggle">

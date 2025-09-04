@@ -37,7 +37,7 @@ function Rejected() {
   {claims.map((claim) => (
     <div key={claim._id} className="claim-card">
 
-      {/* Status Badge */}
+      
       <div className="status-badge status-rejected">Rejected</div>
 
       {/* Prescription + Bills */}
@@ -124,7 +124,7 @@ function Rejected() {
       </p>
   )}
 
-  {/* ✅ Wrap eligible + reason side by side */}
+  {/* Wrap eligible + reason side by side */}
   <div className="review-section">
     <div
       className={`eligible-amount-card ${
@@ -149,7 +149,7 @@ function Rejected() {
       </p>
     </div>
 
-    {/* ✅ Review Reason Card */}
+    {/* Review Reason Card */}
     {claim.review?.reason && (
       <div className="review-reason-card">
         <h4>Admin Review</h4>

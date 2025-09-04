@@ -37,7 +37,7 @@ function Pending() {
   {claims.map((claim) => (
     <div key={claim._id} className="claim-card">
 
-      {/* Status Badge */}
+      
       <div className="status-badge status-pending">Pending</div>
 
       {/* Prescription + Bills */}
@@ -80,7 +80,7 @@ function Pending() {
 )}
         </div>
 
-        {/* Bills */}
+     
    {/* Bills */}
 <div className="inner-card bill-card">
   <h3>Bill</h3>

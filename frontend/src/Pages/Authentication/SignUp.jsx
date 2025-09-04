@@ -26,7 +26,7 @@ export default function SignUp({ onSignupSuccess }) {
 
       if (!response.ok) throw new Error("Failed to register");
 
-      // Show success toast
+   
        toast.success("🎉 User Successfully Signed Up!", {
         position: "top-center",
         autoClose: 2000,
@@ -44,7 +44,7 @@ export default function SignUp({ onSignupSuccess }) {
         },
       });
 
-      // After toast, switch to login form
+     
       if (onSignupSuccess) {
         setTimeout(() => onSignupSuccess(), 2100);
       }

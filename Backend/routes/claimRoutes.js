@@ -48,6 +48,7 @@ router.get('/claims/user/pending',authMiddleware,  async (req, res) => {
   }
 });
 
+
 router.get('/claims/user/approved',authMiddleware, async (req, res) => {
   try {
     const { email } = req.user; 

@@ -48,7 +48,7 @@ function Home() {
         setMessage(data.error || "Upload failed!");
       }
 
-      // ✅ show toast + redirect
+  
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
@@ -98,7 +98,7 @@ function Home() {
         </button>
       </div>
 
-      {/* Loader Modal */}
+     
       {loading && (
         <div className="modal-overlay">
           <div className="modal">
@@ -111,7 +111,7 @@ function Home() {
         </div>
       )}
 
-      {/* Toast */}
+    
       {showToast && (
         <div className={`toast ${message.includes("failed") ? "error" : "success"}`}>
           {message}

@@ -20,11 +20,11 @@ input[type="text"],
 input[type="email"],
 input[type="password"] {
   width: 90%;
-  max-width: 300px; /* shorter width */
+  max-width: 300px; 
   padding: 12px 15px;
   border: 1px solid #ddd;
   border-radius: 12px;
-  margin: 0 auto 15px auto; /* center inputs */
+  margin: 0 auto 15px auto; 
   display: block;
   outline: none;
   transition: 0.3s;
@@ -37,7 +37,7 @@ input:focus {
 
 button {
   width: 90%;
-  max-width: 300px; /* match input width */
+  max-width: 300px; 
   padding: 12px;
   background-color: #7b3fe4;
   color: white;

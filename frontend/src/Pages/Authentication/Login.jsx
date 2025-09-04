@@ -37,7 +37,7 @@ export default function Login() {
         return;
       }
 
-      // Show success toast
+      
       toast.success(`🎉 Welcome, ${data.user.username}!`, {
         position: "top-center",
         autoClose: 2000,
@@ -53,7 +53,7 @@ export default function Login() {
         },
       });
 
-      // Navigate after toast is visible
+      
       setTimeout(() => navigate("/Home"), 2100);
 
     } catch (error) {

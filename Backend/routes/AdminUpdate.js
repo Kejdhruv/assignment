@@ -4,6 +4,7 @@ import claims from "../Database/Claims/claims.js";
 const router = express.Router();  
 import { authMiddleware , adminAuth } from "../Middleware/DecodeToken.js";
 
+//Getting claims for admins
 router.get('/admin/claims',authMiddleware,  async (req, res) => {
   try {
     const data = await claims();
@@ -18,6 +19,7 @@ router.get('/admin/claims',authMiddleware,  async (req, res) => {
   }
 });
 
+//Updating claims to approved status 
 router.put('/admin/claims/:id/approve', authMiddleware,async (req, res) => {
   try {
     const { id } = req.params;
@@ -40,7 +42,7 @@ router.put('/admin/claims/:id/approve', authMiddleware,async (req, res) => {
   }
 });  
 
-
+//Updating claims to rejected status 
 router.put('/admin/claims/:id/reject', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;

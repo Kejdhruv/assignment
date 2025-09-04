@@ -4,7 +4,7 @@ const database = "ASSIGNMENT";
 const url = "mongodb://localhost:27017";
 const client = new MongoClient(url);
 
-// ✅ Fetch all claims for a user
+// Fetch all claims for a user ( email based )
 async function claimByUserId(email) {
   try {
     await client.connect();
@@ -17,7 +17,7 @@ async function claimByUserId(email) {
   }
 }
 
-// ✅ Fetch only pending claims
+// Fetch only pending claims by a user
 async function claimPendingByUserId(email) {
   try {
     await client.connect();
@@ -30,7 +30,7 @@ async function claimPendingByUserId(email) {
   }
 }
 
-// ✅ Fetch only approved claims
+// Fetch only approved claims by a user 
 async function claimApprovedByUserId(email) {
   try {
     await client.connect();
@@ -43,7 +43,7 @@ async function claimApprovedByUserId(email) {
   }
 }
 
-// ✅ Fetch only rejected claims
+//  Fetch only rejected claims by a user
 async function claimRejectedByUserId(email) {
   try {
     await client.connect();

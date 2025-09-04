@@ -48,14 +48,14 @@
   line-height: 1.5;
 }
 
-/* New: icons container */
+
 .auth-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;          /* space between icons */
+  gap: 50px;          
   margin-top: 30px;
-  flex-wrap: wrap;     /* wraps on smaller screens */
+  flex-wrap: wrap;     
 }
 
 .icon-wrapper {
@@ -124,7 +124,7 @@
   text-decoration: underline;
 }
 
-/* Optional: smooth transition for the forms */
+
 .auth-right form {
   transition: all 0.3s ease;
 }

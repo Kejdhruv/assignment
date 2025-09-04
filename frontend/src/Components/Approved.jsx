@@ -10,7 +10,7 @@ function Approved() {
       try {
         const res = await fetch("http://localhost:4898/claims/user/Approved", {
           method: "GET",
-          credentials: "include", // ✅ send cookie with token
+          credentials: "include", // send cookie with token
         });
 
         const data = await res.json();
@@ -37,7 +37,7 @@ function Approved() {
   {claims.map((claim) => (
     <div key={claim._id} className="claim-card">
 
-      {/* Status Badge */}
+     
       <div className="status-badge status-approved">Approved</div>
 
       {/* Prescription + Bills */}
@@ -124,7 +124,7 @@ function Approved() {
       </p>
   )}
 
-  {/* ✅ Wrap eligible + reason side by side */}
+  {/*  Wrap eligible + reason side by side */}
   <div className="review-section">
     <div
       className={`eligible-amount-card ${
@@ -149,7 +149,7 @@ function Approved() {
       </p>
     </div>
 
-    {/* ✅ Review Reason Card */}
+    {/* Review Reason Card */}
     {claim.review?.reason && (
       <div className="review-reason-card">
         <h4>Admin Review</h4>

@@ -8,7 +8,7 @@ function AdminRoute({ children }) {
   useEffect(() => {
     fetch("http://localhost:4898/API/USER", {
       method: "GET",
-      credentials: "include", // ✅ send cookies
+      credentials: "include", // send cookies
     })
       .then(res => res.json())
       .then(data => {

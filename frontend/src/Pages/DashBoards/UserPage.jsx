@@ -12,7 +12,7 @@ function UserPage() {
     <div className="dashboard-container">
       <h1>User Dashboard</h1>
 
-      {/* Tab Navigation */}
+     
       <div className="tabs">
         <button
           className={activeTab === "pending" ? "active" : ""}
@@ -34,7 +34,7 @@ function UserPage() {
         </button>
       </div>
 
-      {/* Content Rendering */}
+      
       <div className="tab-content">
         {activeTab === "pending" && <Pending />}
         {activeTab === "approved" && <Approved />}

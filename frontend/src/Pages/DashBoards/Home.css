@@ -1,4 +1,4 @@
-/* Center container */
+
 .claim-upload-container {
   display: flex;
   justify-content: center;
@@ -137,7 +137,7 @@
   }
 }
 
-/* Toast */
+
 .toast {
   position: fixed;
   bottom: 30px;

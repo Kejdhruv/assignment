@@ -1,0 +1,223 @@
+{
+  "info": {
+    "name": "Claims Management API",
+    "_postman_id": "12345-67890",
+    "description": "Postman collection for Claims Management System (Users + Admins)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Signup",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"mypassword123\",\n  \"role\": \"User\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4898/Auth/Signup",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4898",
+          "path": [
+            "Auth",
+            "Signup"
+          ]
+        }
+      }
+    },
+    {
+      "name": "User Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"mypassword123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4898/Auth/Login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4898",
+          "path": [
+            "Auth",
+            "Login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Current User",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4898/API/USER",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4898",
+          "path": [
+            "API",
+            "USER"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add Claim (Upload Files)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "documents",
+              "type": "file",
+              "src": "/path/to/prescription.pdf"
+            },
+            {
+              "key": "documents",
+              "type": "file",
+              "src": "/path/to/bill.pdf"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:4898/api/claims",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4898",
+          "path": [
+            "api",
+            "claims"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Pending Claims (User)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4898/claims/user/pending",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4898",
+          "path": [
+            "claims",
+            "user",
+            "pending"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Admin - Get All Claims",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4898/admin/claims",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4898",
+          "path": [
+            "admin",
+            "claims"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Admin - Approve Claim",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reason\": \"Valid claim, approved.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4898/admin/claims/{{claimId}}/approve",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4898",
+          "path": [
+            "admin",
+            "claims",
+            "{{claimId}}",
+            "approve"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Admin - Reject Claim",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reason\": \"Rejected due to missing documents.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4898/admin/claims/{{claimId}}/reject",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4898",
+          "path": [
+            "admin",
+            "claims",
+            "{{claimId}}",
+            "reject"
+          ]
+        }
+      }
+    }
+  ]
+}

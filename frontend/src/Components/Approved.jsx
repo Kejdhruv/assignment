@@ -106,42 +106,58 @@ function Approved() {
       </div>
 
       {/* Flags / Issues */}
-      <div className="claim-issues">
-        <h4>Issues / Flags</h4>
-        {!claim.checks?.visit_reason_consistency?.passed && (
-          <p className="issue-item">{claim.checks.visit_reason_consistency.flag}</p>
-        )}
-        {!claim.checks?.treatment_fulfillment?.passed && (
-          <p className="issue-item">
-            Extra items: {claim.checks.treatment_fulfillment.extra.join(", ")}
-          </p>
-        )}
-        {!claim.checks?.policy_exclusions?.passed && claim.checks.policy_exclusions.excluded_items && (
-          <p className="issue-item">
-            Excluded items: {claim.checks.policy_exclusions.excluded_items.join(", ")}
-          </p>
-              )}
-                        <div
-    className={`eligible-amount-card ${
-      claim.checks?.eligible_amount_calculation?.passed
-        ? "eligible-pass"
-        : "eligible-fail"
-    }`}
-  >
-    <p>
-      <strong>Total Claimed:</strong> ₹
-      {claim.checks?.eligible_amount_calculation?.totalClaimed}
+     <div className="claim-issues">
+  <h4>Issues / Flags</h4>
+  {!claim.checks?.visit_reason_consistency?.passed && (
+    <p className="issue-item">{claim.checks.visit_reason_consistency.flag}</p>
+  )}
+  {!claim.checks?.treatment_fulfillment?.passed && (
+    <p className="issue-item">
+      Extra items: {claim.checks.treatment_fulfillment.extra.join(", ")}
     </p>
-    <p>
-      <strong>Eligible Amount:</strong> ₹
-      {claim.checks?.eligible_amount_calculation?.eligibleAmount}
-    </p>
-    <p>
-      <strong>Status:</strong>{" "}
-      {claim.checks?.eligible_amount_calculation?.passed ? "✅ Approved" : "❌ Reduced"}
-    </p>
-  </div>     
+  )}
+  {!claim.checks?.policy_exclusions?.passed &&
+    claim.checks.policy_exclusions.excluded_items && (
+      <p className="issue-item">
+        Excluded items:{" "}
+        {claim.checks.policy_exclusions.excluded_items.join(", ")}
+      </p>
+  )}
+
+  {/* ✅ Wrap eligible + reason side by side */}
+  <div className="review-section">
+    <div
+      className={`eligible-amount-card ${
+        claim.checks?.eligible_amount_calculation?.passed
+          ? "eligible-pass"
+          : "eligible-fail"
+      }`}
+    >
+      <p>
+        <strong>Total Claimed:</strong> ₹
+        {claim.checks?.eligible_amount_calculation?.totalClaimed}
+      </p>
+      <p>
+        <strong>Eligible Amount:</strong> ₹
+        {claim.checks?.eligible_amount_calculation?.eligibleAmount}
+      </p>
+      <p>
+        <strong>Status:</strong>{" "}
+        {claim.checks?.eligible_amount_calculation?.passed
+          ? "✅ Approved"
+          : "❌ Reduced"}
+      </p>
+    </div>
+
+    {/* ✅ Review Reason Card */}
+    {claim.review?.reason && (
+      <div className="review-reason-card">
+        <h4>Admin Review</h4>
+        <p>{claim.review.reason}</p>
       </div>
+    )}
+  </div>
+</div>
 
     </div>
   ))}
